@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ndéye Fatou SOW — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c28;
+    --accent: #7c5cfc;
+    --accent2: #e86bdf;
+    --gold: #f0c060;
+    --text: #e8e8f0;
+    --muted: #8888aa;
+    --border: rgba(124,92,252,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND NOISE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(124,92,252,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232,107,223,0.08) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.1em;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-name span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--muted);
+    animation: pulse 2s infinite;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    padding: 7rem 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--surface);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+
+  .stat-item .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-item .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SKILLS ── */
+  .skills-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-group:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .skill-group-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    background: rgba(124,92,252,0.1);
+    color: var(--text);
+    font-size: 0.82rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    border: 1px solid rgba(124,92,252,0.15);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--surface); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-6px);
+  }
+
+  .project-card-top {
+    padding: 2rem 2rem 0;
+  }
+
+  .project-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent2);
+    border: 1px solid var(--accent2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    padding: 0 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .project-tech {
+    padding: 1.2rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-chip {
+    background: rgba(240,192,96,0.1);
+    color: var(--gold);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .cert-item:hover { border-color: var(--gold); }
+
+  .cert-icon {
+    font-size: 2rem;
+    min-width: 48px;
+    text-align: center;
+  }
+
+  .cert-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .cert-name {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  .cert-issuer {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--surface); }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3rem 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0.55rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+  }
+
+  .timeline-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-institution {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .mention-badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.15rem 0.6rem;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    max-width: 600px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 3.5rem;
+    text-align: center;
+  }
+
+  .contact-box p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p { color: var(--muted); font-size: 0.82rem; }
+
+  footer .footer-name {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 0 1.5rem; }
+    .hero-scroll { left: 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NFS</div>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#education">Formation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <span class="hero-tag">// Développeuse Full-Stack · Master Systèmes d’Information Répartis · UCAD</span>
+    <h1 class="hero-name">Ndéye Fatou<br><span>SOW</span></h1>
+    <p class="hero-subtitle">Ingénieure logicielle passionnée par la conception d'applications web, mobiles et de systèmes d'information répartis.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn-ghost">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">À propos</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Je suis <strong>Ndéye Fatou SOW</strong>, développeuse full-stack basée à Dakar, Sénégal, actuellement en <strong>Master 1 Systèmes d'Information Répartis</strong> à l'Université Cheikh Anta Diop de Dakar (UCAD), mention Bien.</p>
+      <p>Mon parcours académique solide, couronné par une <strong>Licence 3 avec mention Très-Bien</strong>, reflète ma rigueur et ma curiosité intellectuelle. Je conçois des applications complètes allant du backend robuste aux interfaces utilisateur élégantes, en passant par le développement mobile.</p>
+      <p>Proactive, organisée et à l'aise dans les environnements exigeants, je combine <strong>Big Data, BI, cybersécurité</strong> et développement applicatif dans mon profil technique.</p>
+    </div>
+    <div>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Projets réalisés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">M1</div>
+          <div class="stat-label">Niveau actuel</div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem; color:var(--muted); font-size:0.9rem; line-height:1.8;">
+        <div style="margin-bottom:0.8rem;">📍 <strong style="color:var(--text)">Localisation</strong> — Dakar, Sénégal</div>
+        <div style="margin-bottom:0.8rem;">📧 <strong style="color:var(--text)">Email</strong> — ndeyefatousow1962@gmail.com</div>
+        <div style="margin-bottom:0.8rem;">📞 <strong style="color:var(--text)">Téléphone</strong> — +221 773158277</div>
+        <div>🌐 <strong style="color:var(--text)">Langues</strong> — Français (Bon) · Anglais (Moyen)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Compétences</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-groups">
+    <div class="skill-group">
+      <div class="skill-group-title">Langages de programmation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">Dart</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Développement Web</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Vue.js</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">AJAX</span>
+        <span class="skill-tag">jQuery</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Développement Mobile</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Flutter</span>
+        <span class="skill-tag">Android Studio</span>
+        <span class="skill-tag">Dart</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Bases de données</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Oracle</span>
+        <span class="skill-tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Frameworks & Outils</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Java EE</span>
+        <span class="skill-tag">Spring Security</span>
+        <span class="skill-tag">Hibernate</span>
+        <span class="skill-tag">Maven</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Big Data & BI</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Hadoop</span>
+        <span class="skill-tag">MapReduce</span>
+        <span class="skill-tag">Apache Spark</span>
+        <span class="skill-tag">Power BI</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">IA & Architecture</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Microservices</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Cybersécurité</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ANSSI SecNumacadémie</span>
+        <span class="skill-tag">Sécurité des SI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Projets réalisés</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <!-- Gestion Commerciale -->
+    <div class="project-card">
+      <div class="project-badge">Featured</div>
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(124,92,252,0.15);">🛒</div>
+        <h3 class="project-title">Application de Gestion Commerciale</h3>
+      </div>
+      <p class="project-desc">Système complet de gestion commerciale couvrant les ventes, les stocks, les clients et les fournisseurs. Interface intuitive avec tableaux de bord et rapports analytiques pour le suivi en temps réel des activités commerciales.</p>
+      <div class="project-tech">
+        <span class="tech-chip">Java EE</span>
+        <span class="tech-chip">PostgreSQL</span>
+        <span class="tech-chip">Spring</span>
+        <span class="tech-chip">Bootstrap</span>
+      </div>
+    </div>
+
+    <!-- Femme Santé / Menstruation -->
+    <div class="project-card">
+      <div class="project-badge">Featured</div>
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(232,107,223,0.15);">🌸</div>
+        <h3 class="project-title">Femme Santé — Suivi Menstruel</h3>
+      </div>
+      <p class="project-desc">Application dédiée à la santé féminine permettant de suivre les cycles menstruels, prédire les prochaines dates, consulter des conseils santé personnalisés et maintenir un journal de bien-être. Interface douce et accessible.</p>
+      <div class="project-tech">
+        <span class="tech-chip">Flutter</span>
+        <span class="tech-chip">Dart</span>
+        <span class="tech-chip">Android Studio</span>
+        <span class="tech-chip">MySQL</span>
+      </div>
+    </div>
+
+    <!-- Tourisme -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(240,192,96,0.15);">🗺️</div>
+        <h3 class="project-title">Plateforme de Gestion Touristique</h3>
+      </div>
+      <p class="project-desc">Solution complète pour explorer, réserver et gérer les services touristiques. Inclut le suivi des clients, des prestataires et l'envoi automatisé des reçus de réservation par email.</p>
+      <div class="project-tech">
+        <span class="tech-chip">Java JEE</span>
+        <span class="tech-chip">PostgreSQL</span>
+        <span class="tech-chip">Hibernate</span>
+        <span class="tech-chip">Maven</span>
+      </div>
+    </div>
+
+    <!-- Messagerie -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(124,92,252,0.15);">💬</div>
+        <h3 class="project-title">Système de Messagerie Temps Réel</h3>
+      </div>
+      <p class="project-desc">Plateforme sociale avec enregistrement, profil utilisateur, gestion d'amis et messagerie instantanée. Interaction fluide grâce aux technologies asynchrones.</p>
+      <div class="project-tech">
+        <span class="tech-chip">PHP</span>
+        <span class="tech-chip">MySQL</span>
+        <span class="tech-chip">AJAX</span>
+        <span class="tech-chip">jQuery</span>
+      </div>
+    </div>
+
+    <!-- Boutique -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(232,107,223,0.15);">👗</div>
+        <h3 class="project-title">Boutique de Vêtements en Ligne</h3>
+      </div>
+      <p class="project-desc">E-commerce de mode offrant une expérience d'achat fluide avec catalogue produits, panier, commandes et gestion administrative efficace.</p>
+      <div class="project-tech">
+        <span class="tech-chip">PHP</span>
+        <span class="tech-chip">MySQL</span>
+        <span class="tech-chip">Bootstrap</span>
+      </div>
+    </div>
+
+    <!-- Gestion Emplois du Temps -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(240,192,96,0.15);">📅</div>
+        <h3 class="project-title">Gestion des Emplois du Temps & Salles</h3>
+      </div>
+      <p class="project-desc">Application web pour la section informatique de l'UCAD permettant la planification des cours, la gestion des salles disponibles et la visualisation des emplois du temps.</p>
+      <div class="project-tech">
+        <span class="tech-chip">PHP</span>
+        <span class="tech-chip">MySQL</span>
+        <span class="tech-chip">AJAX</span>
+        <span class="tech-chip">Bootstrap</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="certs-list">
+
+    <div class="cert-item">
+      <div class="cert-icon">🔐</div>
+      <div>
+        <div class="cert-date">Février 2026</div>
+        <div class="cert-name">Cybersécurité — MOOC SecNumacadémie</div>
+        <div class="cert-issuer">ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) · Attestation de suivi avec succès</div>
+      </div>
+    </div>
+
+    <div class="cert-item">
+      <div class="cert-icon">💻</div>
+      <div>
+        <div class="cert-date">Décembre 2023</div>
+        <div class="cert-name">Certificat en Informatique et Internet</div>
+        <div class="cert-issuer">FORCE-N Sénégal</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Formation</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">2024 — 2025</div>
+      <div class="timeline-title">Master 1 — Systèmes d'Information Répartis</div>
+      <div class="timeline-institution">Université Cheikh Anta Diop de Dakar (UCAD) · FST / Département Mathématiques & Informatique</div>
+      <span class="mention-badge">Mention : Bien</span>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2023 — 2024</div>
+      <div class="timeline-title">Licence 3 — Informatique</div>
+      <div class="timeline-institution">Université Cheikh Anta Diop de Dakar (UCAD) · FST</div>
+      <span class="mention-badge">Mention : Très-Bien</span>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2022 — 2023</div>
+      <div class="timeline-title">Licence 2 — Informatique</div>
+      <div class="timeline-institution">Université Cheikh Anta Diop de Dakar (UCAD) · FST</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2021 — 2022</div>
+      <div class="timeline-title">Licence 1 — Informatique</div>
+      <div class="timeline-institution">Université Cheikh Anta Diop de Dakar (UCAD) · FST</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2020 — 2021</div>
+      <div class="timeline-title">Baccalauréat Série S2</div>
+      <div class="timeline-institution">Lycée Mixte Maurice DELAFOSSE</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-box">
+    <p>Vous avez un projet, une opportunité de stage ou simplement envie d'échanger ? N'hésitez pas à me contacter, je serai ravie de vous répondre.</p>
+    <div class="contact-links">
+      <a href="mailto:ndeyefatousow1962@gmail.com" class="contact-link">✉️ Email</a>
+      <a href="tel:+221773158277" class="contact-link">📞 +221 773 158 277</a>
+      <a href="#" class="contact-link">📍 Dakar, Sénégal</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span class="footer-name">Ndéye Fatou SOW</span> — Tous droits réservés</p>
+  <p style="font-family:'Space Mono',monospace; font-size:0.72rem; color:var(--muted);">Développeuse Full-Stack · UCAD</p>
+</footer>
+
+</body>
+</html>
