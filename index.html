@@ -523,6 +523,17 @@
     font-family: 'Space Mono', monospace;
   }
 
+  .inprogress-badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--accent2);
+    border: 1px solid var(--accent2);
+    padding: 0.15rem 0.6rem;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+  }
+
   /* ── CONTACT ── */
   .contact-box {
     max-width: 600px;
@@ -620,9 +631,10 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <span class="hero-tag">// Développeuse Full-Stack · Master Systèmes d’Information Répartis · UCAD</span>
+    <span class="hero-tag">// Data Scientist & Ingénieure Systèmes Répartis · M2 SIR · UCAD</span>
     <h1 class="hero-name">Ndéye Fatou<br><span>SOW</span></h1>
-    <p class="hero-subtitle">Ingénieure logicielle passionnée par la conception d'applications web, mobiles et de systèmes d'information répartis.</p>
+    <p class="hero-subtitle">Spécialisée en extraction de features, modélisation prédictive et intégration d'architectures d'Intelligence Artificielle appliquées aux données complexes.</p>
+
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">Voir mes projets</a>
       <a href="#contact" class="btn-ghost">Me contacter</a>
@@ -643,14 +655,14 @@
   </div>
   <div class="about-grid">
     <div class="about-text">
-      <p>Je suis <strong>Ndéye Fatou SOW</strong>, développeuse full-stack basée à Dakar, Sénégal, actuellement en <strong>Master 1 Systèmes d'Information Répartis</strong> à l'Université Cheikh Anta Diop de Dakar (UCAD), mention Bien.</p>
-      <p>Mon parcours académique solide, couronné par une <strong>Licence 3 avec mention Très-Bien</strong>, reflète ma rigueur et ma curiosité intellectuelle. Je conçois des applications complètes allant du backend robuste aux interfaces utilisateur élégantes, en passant par le développement mobile.</p>
+      <p>Je suis <strong>Ndéye Fatou SOW</strong>, développeuse full-stack basée à Dakar, Sénégal, actuellement en <strong>Master 2 Systèmes d'Information Répartis</strong> à l'Université Cheikh Anta Diop de Dakar (UCAD).</p>
+      <p>Mon parcours académique solide, couronné par une <strong>Licence 3 avec mention Très-Bien</strong> et un <strong>Master 1 avec mention Bien</strong>, reflète ma rigueur et ma curiosité intellectuelle. Je conçois des applications complètes allant du backend robuste aux interfaces utilisateur élégantes, en passant par le développement mobile.</p>
       <p>Proactive, organisée et à l'aise dans les environnements exigeants, je combine <strong>Big Data, BI, cybersécurité</strong> et développement applicatif dans mon profil technique.</p>
     </div>
     <div>
       <div class="stats-row">
         <div class="stat-item">
-          <div class="stat-num">5+</div>
+          <div class="stat-num">6+</div>
           <div class="stat-label">Projets réalisés</div>
         </div>
         <div class="stat-item">
@@ -658,7 +670,7 @@
           <div class="stat-label">Certifications</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">M1</div>
+          <div class="stat-num">M2</div>
           <div class="stat-label">Niveau actuel</div>
         </div>
       </div>
@@ -726,9 +738,20 @@
       <div class="skill-group-title">Frameworks & Outils</div>
       <div class="skill-tags">
         <span class="skill-tag">Java EE</span>
+        <span class="skill-tag">Spring Boot</span>
         <span class="skill-tag">Spring Security</span>
         <span class="skill-tag">Hibernate</span>
         <span class="skill-tag">Maven</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Téléphonie & Réseaux</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Asterisk</span>
+        <span class="skill-tag">SVI / IVR</span>
+        <span class="skill-tag">OpenStack</span>
+        <span class="skill-tag">Linux Admin</span>
+        <span class="skill-tag">AWS & Cloud</span>
       </div>
     </div>
     <div class="skill-group">
@@ -738,6 +761,8 @@
         <span class="skill-tag">MapReduce</span>
         <span class="skill-tag">Apache Spark</span>
         <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">SSIS</span>
+        <span class="skill-tag">SSRS</span>
       </div>
     </div>
     <div class="skill-group">
@@ -745,6 +770,7 @@
       <div class="skill-tags">
         <span class="skill-tag">Machine Learning</span>
         <span class="skill-tag">Microservices</span>
+        <span class="skill-tag">Google Gemini API</span>
       </div>
     </div>
     <div class="skill-group">
@@ -765,6 +791,82 @@
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
+        <!-- PROJET : IMAGERIE ET DATA (FORCE-N) -->
+    <div class="project-card">
+      <div class="project-badge">Featured</div>
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(124,92,252,0.15);">📷🫁</div>
+        <h3 class="project-title">Analyse Statistique & Imagerie Pneumologique</h3>
+      </div>
+      <p class="project-desc">
+        Projet majeur de certification FORCE-N. Analyse descriptive et diagnostique de 5 863 radiographies thoraciques (Kaggle) couplée à l'étude de 500 dossiers de patients hospitalisés au Sénégal. Extraction matricielle de descripteurs visuels de pixels (luminosité, texture, contraste) et application de tests statistiques t de Student (p &lt; 0,001) avec Scipy pour valider les facteurs discriminants de la pneumonie en gérant le déséquilibre des classes (72,9%).
+      </p>
+      <div class="project-tech">
+        <span class="tech-chip">Python 3</span>
+        <span class="tech-chip">Jupyter Notebook</span>
+        <span class="tech-chip">Scipy (Stats)</span>
+        <span class="tech-chip">PIL / OpenCV</span>
+        <span class="tech-chip">Pandas</span>
+        
+      </div>
+    </div>
+    <!-- PROJET : RANG MOY GAAW (TRANSPORT & MOBILITÉ) -->
+    <div class="project-card">
+      <div class="project-badge">Featured</div>
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(124,92,252,0.15);">🚌🇸🇳</div>
+        <h3 class="project-title">Rang Moy Gaaw — Plateforme de Mobilité Multimodale IoT</h3>
+      </div>
+      <p class="project-desc">
+        Conception du module d'ingénierie logicielle pour l'écosystème de transport urbain sénégalais (Bus DDD, BRT, Navettes maritimes). Implémentation d'une architecture hexagonale sous microservices gérant les flux GPS de plus de 500 véhicules en temps réel via WebSocket STOMP et Redis (latence &lt; 100ms). Intégration de pipelines de paiement mobile dématérialisé (Wave, Orange Money) et d'un assistant conversationnel RAG (Spring AI) pour le guidage multimodal adaptatif en français et en wolof.
+      </p>
+      <div class="project-tech">
+        <span class="tech-chip">Spring Boot 3</span>
+        <span class="tech-chip">Spring AI (RAG)</span>
+        <span class="tech-chip">Architecture Hexagonale</span>
+        <span class="tech-chip">Apache Kafka</span>
+        <span class="tech-chip">Redis & WebSocket</span>
+        <span class="tech-chip">PostgreSQL</span>
+      </div>
+    </div>
+
+    <!-- Call Center Asterisk -->
+    <div class="project-card">
+      <div class="project-badge">Featured</div>
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(124,92,252,0.15);">☎️</div>
+        <h3 class="project-title">Centre d'Appels Intelligent — Asterisk</h3>
+      </div>
+      <p class="project-desc">Mise en place d'un centre d'appels complet avec Asterisk : serveur de téléphonie, SVI (IVR) et files d'attente d'appels, testés via softphone. Activation du CDR et de l'enregistrement des appels (MixMonitor) pour l'historique. Interface d'administration web (Flask) avec tableaux de bord Chart.js, authentification, export CSV et écoute des enregistrements. Analyse IA multilingue (français, anglais, wolof) du ressenti client à partir des appels enregistrés via l'API Google Gemini.</p>
+      <div class="project-tech">
+        <span class="tech-chip">Asterisk</span>
+        <span class="tech-chip">SVI / IVR</span>
+        <span class="tech-chip">Python Flask</span>
+        <span class="tech-chip">Google Gemini API</span>
+        <span class="tech-chip">Chart.js</span>
+      </div>
+    </div>
+
+        <!-- PROJET : SMARTRECRUIT (INTELLIGENCE ARTIFICIELLE) -->
+    <div class="project-card">
+      <div class="project-badge">Featured</div>
+      <div class="project-card-top">
+        <div class="project-icon" style="background:rgba(124,92,252,0.15);">🧠🤖</div>
+        <h3 class="project-title">SmartRecruit — Plateforme de Scoring CV & Chatbot xAI Grok</h3>
+      </div>
+      <p class="project-desc">
+        Conception d'une architecture backend sous microservices pour automatiser l'analyse de candidatures. Intégration de Spring AI pour le parsing sémantique de CV PDF et l'évaluation multicritère des profils via un algorithme de scoring dynamique. Développement d'un chatbot conversationnel RH intelligent exploitant l'API Grok de xAI pour interroger et filtrer la base de données des candidats en langage naturel.
+      </p>
+      <div class="project-tech">
+        <span class="tech-chip">Spring Boot 3</span>
+        <span class="tech-chip">Spring AI</span>
+        <span class="tech-chip">xAI Grok API</span>
+        <span class="tech-chip">Microservices</span>
+        <span class="tech-chip">PostgreSQL</span>
+        <span class="tech-chip">JWT Security</span>
+      </div>
+    </div>
+
 
     <!-- Gestion Commerciale -->
     <div class="project-card">
@@ -828,19 +930,7 @@
       </div>
     </div>
 
-    <!-- Boutique -->
-    <div class="project-card">
-      <div class="project-card-top">
-        <div class="project-icon" style="background:rgba(232,107,223,0.15);">👗</div>
-        <h3 class="project-title">Boutique de Vêtements en Ligne</h3>
-      </div>
-      <p class="project-desc">E-commerce de mode offrant une expérience d'achat fluide avec catalogue produits, panier, commandes et gestion administrative efficace.</p>
-      <div class="project-tech">
-        <span class="tech-chip">PHP</span>
-        <span class="tech-chip">MySQL</span>
-        <span class="tech-chip">Bootstrap</span>
-      </div>
-    </div>
+    
 
     <!-- Gestion Emplois du Temps -->
     <div class="project-card">
@@ -869,7 +959,17 @@
   </div>
   <div class="certs-list">
 
+
     <div class="cert-item">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-date">Avril 2026</div>
+        <div class="cert-name">Data Analyst</div>
+        <div class="cert-issuer">FORCE-N Sénégal</div>
+      </div>
+    </div>
+    
+     <div class="cert-item">
       <div class="cert-icon">🔐</div>
       <div>
         <div class="cert-date">Février 2026</div>
@@ -877,6 +977,8 @@
         <div class="cert-issuer">ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) · Attestation de suivi avec succès</div>
       </div>
     </div>
+
+    
 
     <div class="cert-item">
       <div class="cert-icon">💻</div>
@@ -898,6 +1000,13 @@
     <div class="section-line"></div>
   </div>
   <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">2025 — 2026</div>
+      <div class="timeline-title">Master 2 — Systèmes d'Information Répartis</div>
+      <div class="timeline-institution">Université Cheikh Anta Diop de Dakar (UCAD) · FST / Département Mathématiques & Informatique</div>
+      <span class="inprogress-badge">En cours</span>
+    </div>
 
     <div class="timeline-item">
       <div class="timeline-date">2024 — 2025</div>
@@ -953,7 +1062,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <span class="footer-name">Ndéye Fatou SOW</span> — Tous droits réservés</p>
+  <p>© 2026 <span class="footer-name">Ndéye Fatou SOW</span> — Tous droits réservés</p>
   <p style="font-family:'Space Mono',monospace; font-size:0.72rem; color:var(--muted);">Développeuse Full-Stack · UCAD</p>
 </footer>
 
