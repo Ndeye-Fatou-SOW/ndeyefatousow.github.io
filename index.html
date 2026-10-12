@@ -127,6 +127,18 @@
   .domain h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 6px; }
   .domain p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
 
+  /* Distinction */
+  section.tight { padding-top: 8px; }
+  .dist { display: grid; grid-template-columns: 300px 1fr; gap: 36px; align-items: center; background: var(--surface); border: 1px solid var(--rule); border-radius: 22px; padding: 26px; box-shadow: var(--shadow); }
+  .dist figure { margin: 0; }
+  .dist img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--rule); }
+  .dist figcaption { margin-top: 8px; color: var(--ink-faint); font-size: .8rem; text-align: center; }
+  .dist h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+  .dist .desc { color: var(--ink-soft); margin: 12px 0 16px; }
+  .dist .metrics { margin-bottom: 0; }
+  .step a { font-size: .86rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .step a:hover { text-decoration: underline; }
+
   /* Projets phares */
   .feature { display: grid; grid-template-columns: 300px 1fr; background: var(--surface); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); margin-top: 20px; }
   .feature:first-of-type { margin-top: 0; }
@@ -207,6 +219,8 @@
   @media (max-width: 900px) {
     .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
     .domains, .skills { grid-template-columns: 1fr 1fr; }
+    .dist { grid-template-columns: 1fr; gap: 22px; padding: 20px; }
+    .dist figure { max-width: 320px; margin: 0 auto; }
     .feature { grid-template-columns: 1fr; }
     .feature .visual { flex-direction: row; align-items: center; justify-content: flex-start; padding: 20px; }
     .two { grid-template-columns: 1fr; }
@@ -295,7 +309,7 @@
         <div class="tiles">
           <div class="tile"><b>12</b><span>projets menés de bout en bout</span></div>
           <div class="tile"><b>65</b><span>candidatures au hackathon remporté</span></div>
-          <div class="tile"><b>4</b><span>certifications data, cloud et sécurité</span></div>
+          <div class="tile"><b>7</b><span>certifications data, cloud et sécurité</span></div>
           <div class="tile"><b>M2</b><span>Systèmes d'Information Répartis</span></div>
         </div>
       </aside>
@@ -324,7 +338,29 @@
     </div>
   </section>
 
-  <section id="projets">
+  <section id="distinction">
+    <div class="wrap">
+      <div class="dist reveal">
+        <figure>
+          <img src="presse/seneweb-hackathon.jpg" alt="Article de Seneweb : l'équipe MULE HUNTERS remporte la première édition nationale du Hackathon d'innovation CIF-DigiCoop-WA+ 2026 au Sénégal. Photo de l'équipe avec le chèque du premier prix." loading="lazy" width="827" height="1280">
+          <figcaption>Source : Seneweb</figcaption>
+        </figure>
+        <div>
+          <p class="kicker">Distinction · Vu dans la presse</p>
+          <h2>1er prix national du Hackathon CIF-DigiCoop-WA+ 2026</h2>
+          <p class="desc">Avec l'équipe MULE HUNTERS, nous avons remporté la première édition nationale au Sénégal, organisée par la Confédération des Institutions Financières d'Afrique de l'Ouest avec l'appui de la Coopération suisse.</p>
+          <div class="metrics">
+            <div class="metric"><b>1er</b><span>sur 65 candidatures</span></div>
+            <div class="metric"><b>72 h</b><span>de compétition</span></div>
+            <div class="metric"><b>1 500 000</b><span>FCFA de dotation</span></div>
+          </div>
+          <p class="desc">Qualification pour la finale régionale de Ouagadougou (octobre 2026).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" class="tight">
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Réalisations</p>
@@ -480,20 +516,23 @@
             <div class="step"><div class="when">2021 – 2024</div><b>Licence — Informatique</b><span>Université Cheikh Anta Diop de Dakar</span><br><span class="tag">Mention Bien · L3 : Très Bien</span></div>
             <div class="step"><div class="when">2021</div><b>Baccalauréat série S2</b><span>Lycée Mixte Maurice Delafosse, Dakar</span></div>
           </div>
-        </div>
-        <div class="panel reveal">
-          <h3><svg class="i"><use href="#i-award"/></svg>Certifications</h3>
-          <div class="tl">
-            <div class="step"><div class="when">Juillet 2026</div><b>Data Analyst</b><span>FORCE-N Sénégal</span></div>
-            <div class="step"><div class="when">Juillet 2026</div><b>Introduction to Big Data</b><span>Alibaba Cloud</span></div>
-            <div class="step"><div class="when">Février 2026</div><b>Cybersécurité — SecNumacadémie</b><span>ANSSI</span></div>
-            <div class="step"><div class="when">Décembre 2023</div><b>Informatique et Internet</b><span>FORCE-N Sénégal</span></div>
-          </div>
           <h3 style="margin-top:26px"><svg class="i"><use href="#i-globe"/></svg>Langues</h3>
           <div class="langs">
             <div class="lang"><b>Wolof</b><span>Langue maternelle</span></div>
             <div class="lang"><b>Français</b><span>Courant</span></div>
             <div class="lang"><b>Anglais</b><span>Intermédiaire</span></div>
+          </div>
+        </div>
+        <div class="panel reveal" id="certifications">
+          <h3><svg class="i"><use href="#i-award"/></svg>Certifications</h3>
+          <div class="tl">
+            <div class="step"><div class="when">Juillet 2026</div><b>Data Analysis</b><span>FORCE-N Sénégal</span> <a href="certificats/force-n-data-analysis.pdf" target="_blank" rel="noopener">Voir l'attestation</a></div>
+            <div class="step"><div class="when">Juillet 2026</div><b>Introduction to Alibaba Cloud Big Data</b><span>Alibaba Cloud Academy</span> <a href="certificats/alibaba-cloud-big-data.png" target="_blank" rel="noopener">Voir le certificat</a></div>
+            <div class="step"><div class="when">Juillet 2026</div><b>How to Set up DataWorks for Migration</b><span>Alibaba Cloud Academy</span> <a href="certificats/alibaba-cloud-dataworks.png" target="_blank" rel="noopener">Voir le certificat</a></div>
+            <div class="step"><div class="when">Mars 2026</div><b>Introduction au DevOps</b><span>LeCloudFacile</span> <a href="certificats/lecloudfacile-devops.pdf" target="_blank" rel="noopener">Voir l'attestation</a></div>
+            <div class="step"><div class="when">Mars 2026</div><b>Introduction à Docker</b><span>LeCloudFacile</span> <a href="certificats/lecloudfacile-docker.pdf" target="_blank" rel="noopener">Voir l'attestation</a></div>
+            <div class="step"><div class="when">Février 2026</div><b>Cybersécurité — SecNumacadémie</b><span>ANSSI</span> <a href="certificats/anssi-secnumacademie.pdf" target="_blank" rel="noopener">Voir l'attestation</a></div>
+            <div class="step"><div class="when">Décembre 2023</div><b>Informatique et Internet</b><span>FORCE-N Sénégal</span></div>
           </div>
         </div>
       </div>
