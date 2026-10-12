@@ -136,6 +136,9 @@
   .dist h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
   .dist .desc { color: var(--ink-soft); margin: 12px 0 16px; }
   .dist .metrics { margin-bottom: 0; }
+  .card p.links { flex: none; font-size: .86rem; font-weight: 600; }
+  .card p.links a { text-decoration: none; }
+  .feature .more { display: flex; flex-wrap: wrap; gap: 8px; }
   .step a { font-size: .86rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
   .step a:hover { text-decoration: underline; }
 
@@ -322,7 +325,7 @@
         <div class="domain reveal">
           <div class="badge"><svg class="i"><use href="#i-code"/></svg></div>
           <h3>Développement full stack</h3>
-          <p>Spring Boot, Angular, API REST sécurisées, microservices, mobile Flutter.</p>
+          <p>Spring Boot, Angular, Django REST, API sécurisées, mobile React Native.</p>
         </div>
         <div class="domain reveal">
           <div class="badge"><svg class="i"><use href="#i-chart"/></svg></div>
@@ -414,8 +417,8 @@
             <div class="metric"><b>&lt; 100 ms</b><span>de latence</span></div>
             <div class="metric"><b>FR / Wolof</b><span>assistant RAG bilingue</span></div>
           </div>
-          <ul class="chips"><li>Spring Boot 3</li><li>Java 21</li><li>Angular 17</li><li>Kafka</li><li>Redis</li><li>WebSocket</li><li>Spring AI</li></ul>
-          <p class="more"><a class="btn btn-primary btn-sm" href="https://ucadedu-my.sharepoint.com/:v:/g/personal/ndeyefatou20_sow_ucad_edu_sn/IQDv5U1DwAalRaEkq-WVOAlZATMTkjBp15FNe6y_w9BDXWY?e=w7iGvX" target="_blank" rel="noopener"><svg class="i"><use href="#i-play"/></svg>Voir la démonstration vidéo</a></p>
+          <ul class="chips"><li>Spring Boot 4</li><li>Java 21</li><li>Angular 21</li><li>Kafka</li><li>Redis</li><li>WebSocket</li><li>API Gemini</li></ul>
+          <p class="more"><a class="btn btn-primary btn-sm" href="https://ucadedu-my.sharepoint.com/:v:/g/personal/ndeyefatou20_sow_ucad_edu_sn/IQDv5U1DwAalRaEkq-WVOAlZATMTkjBp15FNe6y_w9BDXWY?e=w7iGvX" target="_blank" rel="noopener"><svg class="i"><use href="#i-play"/></svg>Voir la démonstration vidéo</a> <a class="btn btn-ghost btn-sm" href="https://github.com/Ndeye-Fatou-SOW/RangMouyGaaw-Backend" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg>Code backend</a> <a class="btn btn-ghost btn-sm" href="https://github.com/Ndeye-Fatou-SOW/RangMouyGaaw-Frontend" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg>Code frontend</a></p>
         </div>
       </article>
     </div>
@@ -438,7 +441,7 @@
         <article class="card" data-tags="ia web">
           <div class="top"><div class="badge"><svg class="i"><use href="#i-users"/></svg></div><div><h3>SmartRecruit</h3><div class="when">2025</div></div></div>
           <p>Analyse automatique de CV et chatbot RH qui interroge la base de candidats en langage naturel.</p>
-          <ul class="chips"><li>Spring Boot</li><li>Spring AI</li><li>API Grok</li><li>JWT</li></ul>
+          <ul class="chips"><li>Spring Boot</li><li>Spring AI</li><li>API Groq</li><li>Spring Security</li></ul>
         </article>
         <article class="card" data-tags="sys ia data">
           <div class="top"><div class="badge"><svg class="i"><use href="#i-phone"/></svg></div><div><h3>Centre d'appels intelligent</h3><div class="when">2025</div></div></div>
@@ -463,7 +466,8 @@
         <article class="card" data-tags="web">
           <div class="top"><div class="badge"><svg class="i"><use href="#i-heart"/></svg></div><div><h3>Femme Santé</h3><div class="when">2024</div></div></div>
           <p>Application mobile de suivi du cycle menstruel, avec prévisions et conseils.</p>
-          <ul class="chips"><li>Flutter</li><li>Dart</li><li>MySQL</li></ul>
+          <ul class="chips"><li>React Native</li><li>Django REST</li><li>PostgreSQL</li></ul>
+          <p class="links"><a href="https://github.com/Ndeye-Fatou-SOW/femme_sante_frontend" target="_blank" rel="noopener">Code mobile</a> · <a href="https://github.com/Ndeye-Fatou-SOW/femme_sante_backend" target="_blank" rel="noopener">Code API</a></p>
         </article>
         <article class="card" data-tags="web">
           <div class="top"><div class="badge"><svg class="i"><use href="#i-globe"/></svg></div><div><h3>Gestion touristique</h3><div class="when">2023 – 2024</div></div></div>
@@ -491,11 +495,11 @@
         <h2>Compétences</h2>
       </div>
       <div class="skills">
-        <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-code"/></svg></div><h3>Full stack</h3></div><ul class="chips"><li>Java</li><li>Spring Boot</li><li>Spring Security</li><li>Angular</li><li>JavaScript</li><li>PHP</li><li>API REST</li><li>Microservices</li></ul></div>
+        <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-code"/></svg></div><h3>Full stack</h3></div><ul class="chips"><li>Java</li><li>Spring Boot</li><li>Spring Security</li><li>Angular</li><li>JavaScript</li><li>PHP</li><li>Django REST</li><li>API REST</li><li>Architecture hexagonale</li></ul></div>
         <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-chart"/></svg></div><h3>Data &amp; BI</h3></div><ul class="chips"><li>SQL</li><li>Python</li><li>Pandas</li><li>Power BI</li><li>SSIS</li><li>SSRS</li><li>Excel</li><li>Spark SQL</li><li>Hadoop</li></ul></div>
-        <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-cpu"/></svg></div><h3>Intelligence artificielle</h3></div><ul class="chips"><li>Machine Learning</li><li>Deep Learning</li><li>RAG</li><li>Spring AI</li><li>API Gemini</li><li>API Grok</li><li>OpenCV</li></ul></div>
+        <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-cpu"/></svg></div><h3>Intelligence artificielle</h3></div><ul class="chips"><li>Machine Learning</li><li>Deep Learning</li><li>RAG</li><li>Spring AI</li><li>API Gemini</li><li>API Groq</li><li>OpenCV</li></ul></div>
         <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-db"/></svg></div><h3>Bases de données</h3></div><ul class="chips"><li>Oracle 19c</li><li>PostgreSQL</li><li>SQL Server</li><li>MySQL</li><li>MongoDB</li><li>Redis</li></ul></div>
-        <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-mobile"/></svg></div><h3>Mobile</h3></div><ul class="chips"><li>Flutter</li><li>Dart</li><li>Android Studio</li></ul></div>
+        <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-mobile"/></svg></div><h3>Mobile</h3></div><ul class="chips"><li>React Native</li><li>Expo</li><li>Flutter</li><li>Dart</li></ul></div>
         <div class="skill reveal"><div class="top"><div class="badge"><svg class="i"><use href="#i-server"/></svg></div><h3>Systèmes &amp; cloud</h3></div><ul class="chips"><li>Linux</li><li>Docker</li><li>Git</li><li>Kafka</li><li>AWS</li><li>OpenStack</li><li>Asterisk</li></ul></div>
       </div>
     </div>
@@ -548,6 +552,7 @@
           <a class="btn" href="mailto:ndeyefatousow1962@gmail.com"><svg class="i"><use href="#i-mail"/></svg>ndeyefatousow1962@gmail.com</a>
           <a class="btn btn-line" href="tel:+221773158277"><svg class="i"><use href="#i-phone"/></svg>+221 77 315 82 77</a>
           <a class="btn btn-line" href="CV_Ndeye_Fatou_SOW.pdf" download><svg class="i"><use href="#i-dl"/></svg>CV (PDF)</a>
+          <a class="btn btn-line" href="https://github.com/Ndeye-Fatou-SOW" target="_blank" rel="noopener"><svg class="i"><use href="#i-code"/></svg>GitHub</a>
         </div>
       </div>
     </div>
